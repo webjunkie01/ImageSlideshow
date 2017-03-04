@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
 #   * Think: What does it do? Why did you write it? What is the focus?
 #   * Try to keep it short, snappy and to the point.
 #   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!  
+#   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description      = <<-DESC
 Image slideshow is a Swift library providing customizable image slideshow with circular scrolling, timer and full screen viewer and extendable image source (AFNetworking image source available in AFURL subspec).
                          DESC
@@ -59,6 +59,12 @@ Image slideshow is a Swift library providing customizable image slideshow with c
     subspec.dependency 'ImageSlideshow/Core'
     subspec.dependency 'Kingfisher', '< 3.0'
     subspec.source_files = 'Pod/Classes/InputSources/KingfisherSource.swift'
+  end
+
+  s.subspec 'HanekeSwift' do |subspec|
+    subspec.dependency 'ImageSlideshow/Core'
+    subspec.dependency 'HanekeSwift', '~> 0.10.0'
+    subspec.source_files = 'Pod/Classes/InputSources/HanekeSource.swift'
   end
 
   s.default_subspec = 'Core'
