@@ -26,7 +26,7 @@ public enum PageControlPosition {
 }
 
 public class ImageSlideshow: UIView, UIScrollViewDelegate {
-    
+    let activityView = UIActivityIndicatorView(activityIndicatorStyle: .Gray)    
     public let scrollView = UIScrollView()
     public let pageControl = UIPageControl()
     
@@ -115,7 +115,12 @@ public class ImageSlideshow: UIView, UIScrollViewDelegate {
     private func initialize() {
         autoresizesSubviews = true
         clipsToBounds = true
-        
+
+        // activity indicator 
+        activityView.center = self.center
+        activityView.startAnimating()
+        addSubview(activityView)
+
         // scroll view configuration
         scrollView.frame = CGRectMake(0, 0, frame.size.width, frame.size.height - 50.0)
         scrollView.delegate = self
